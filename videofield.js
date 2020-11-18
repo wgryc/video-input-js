@@ -333,14 +333,14 @@ class VideoInput extends HTMLElement {
      *  asynchronously.
      */
 
-    // Disables buttons.
+    // Disables buttons; commented out disabling "download" based on user feedback.
 
-    let gvbutton1 = document.querySelector("#" + this.id + "download")
+    //let gvbutton1 = document.querySelector("#" + this.id + "download")
     let gvbutton2 = document.querySelector("#" + this.id + "play")
     let gvbutton3 = document.querySelector("#" + this.id + "submit")
     let gvbutton4 = document.querySelector("#" + this.id + "recordbutton")
 
-    gvbutton1.disabled = true;
+    //gvbutton1.disabled = true;
     gvbutton2.disabled = true;
     gvbutton3.disabled = true;
     gvbutton4.disabled = true;
@@ -439,18 +439,20 @@ class VideoInput extends HTMLElement {
   }
 
   _updateRendering() {
-    let innhtml = "<video style='background:black;padding:0px;margin:0px;width:" + this._width + "px;height:" + this._height + "px;' id='gum" + this.id + "' playsinline autoplay muted></video><br/>";
+    let innhtml = "<video style='width:" + this._width + "px;height:" + this._height + "px;' id='gum" + this.id + "' playsinline autoplay></video><br/>";
 
     let form_field_label = "<span id='" + this.id + "label'>" + this._label + "</span>"
     if (this._maxtime > 0) {
         form_field_label += "<br/><span id='" + this.id + "timerlabel'>Max Time: " + this._maxtime + " seconds</span>";
     }
 
+    let button_row = "<button id='" + this.id + "recordbutton' onclick='javascript:recordme(\"" + this.id + "\");'>Record</button><button id='" + this.id + "play' onclick='javascript:playRec(\"" + this.id + "\");' disabled>Play</button><button id='" + this.id + "download' onclick='javascript:downloadfile(\"" + this.id + "\");' disabled>Download</button><button id='" + this.id + "submit' onclick='javascript:submitfile(\"" + this.id + "\");' disabled>Submit</button>"
+
     if (this._labelloc !== "hidden") {
         if (this._labelloc === "top") {
-            innhtml = "<div style='color:white;background:black;padding:0px;margin:0px;width:" + this._width + "px;'>" + form_field_label + "<br/><button id='" + this.id + "recordbutton' onclick='javascript:recordme(\"" + this.id + "\");'>Record</button><button id='" + this.id + "play' onclick='javascript:playRec(\"" + this.id + "\");' disabled>Play</button><button id='" + this.id + "download' onclick='javascript:downloadfile(\"" + this.id + "\");' disabled>Download</button><button id='" + this.id + "submit' onclick='javascript:submitfile(\"" + this.id + "\");' disabled>Submit</button></div>" + innhtml
+            innhtml = "<div class='videofieldlabel' style='width:" + this._width + "px;'>" + form_field_label + "<br/>" + button_row + "</div>" + innhtml
         } else {
-            innhtml = innhtml + form_field_label + "<div style='color:white;background:black;padding:0px;margin:0px;width:" + this._width + "px;'>" + form_field_label + "<br/><button id='" + this.id + "recordbutton' onclick='javascript:recordme(\"" + this.id + "\");'>Record</button><button id='" + this.id + "play' onclick='javascript:playRec(\"" + this.id + "\");' disabled>Play</button><button id='" + this.id + "download' onclick='javascript:downloadfile(\"" + this.id + "\");' disabled>Download</button><button id='" + this.id + "submit' onclick='javascript:submitfile(\"" + this.id + "\");' disabled>Submit</button></div>"
+            innhtml = innhtml + "<div class='videofieldlabel' style='width:" + this._width + "px;'>" + form_field_label + "<br/>" + button_row + "</div>"
         }
     }
 

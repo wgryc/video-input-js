@@ -1,0 +1,22 @@
+video {
+    background:black;
+    padding:0px;
+    margin:0px;
+}
+
+.videofieldlabel {
+    color:black;
+    /*background:black;*/
+    padding:0px;
+    margin:0px;
+    margin-bottom:10px;
+}
+
+video-input button {
+    margin-top:10px;
+    margin-right:5px;
+    border:1px solid gray;
+    padding:5px;
+    border-radius:3px;
+    min-width:100px;
+}
