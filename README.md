@@ -10,7 +10,7 @@ Currently this works on Firefox and Chrome. It does not require jQuery.
 
 This is meant to be as simple as possible. Below is a sample video input:
 ```
-<video-input id="vid1" width="640" height=480" label="Please record your answer below." labelloc="top" action="/r/upload" maxtime="3"></video-input>
+<video-input id="vid1" vidwidth="640" vidheight=480" label="Please record your answer below." labelloc="top" action="/r/upload" maxtime="3"></video-input>
 ```
 
 This will create a video input field 640px wide and 480px high, with the label "Please record your answer" above the video input. The field will enable you record for 3 seconds, and clicking "submit" will send the video to /r/upload.
