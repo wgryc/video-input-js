@@ -97,6 +97,11 @@ function recordme(videoinputid) {
         let gv = document.querySelector("#" + videoinputid)
         gv.initializeRecording()
         gvbutton.innerHTML = "Stop"
+
+        // Show the "recording" notifier.
+        let gvnotifier = document.querySelector("#rsign" + videoinputid);
+        gvnotifier.style.visibility = "visible";
+
     } else {
         stopRecording(videoinputid);
     }
@@ -178,6 +183,10 @@ function stopRecording(objid) {
   gvbutton1.disabled = false;
   gvbutton2.disabled = false;
   gvbutton3.disabled = false;
+
+  // Hide the "recording" notifier.
+  let gvnotifier = document.querySelector("#rsign" + objid);
+  gvnotifier.style.visibility = "hidden";
 
 }
 
@@ -271,15 +280,15 @@ class VideoInput extends HTMLElement {
     this._interval = 0;
   }
 
-  static get observedAttributes() { return ["width", "height", "labelloc", "label", "action", "maxtime"]; }
+  static get observedAttributes() { return ["vidwidth", "vidheight", "labelloc", "label", "action", "maxtime"]; }
 
   attributeChangedCallback(name, oldValue, newValue) {
       /*
        *  Saves attributes.
        */
-      if (name === "width") {
+      if (name === "vidwidth") {
           this._width = newValue;
-      } else if (name === "height") {
+      } else if (name === "vidheight") {
           this._height = newValue;
       } else if (name === "labelloc") {
           if (newValue === "top" | newValue === "bottom" | newValue === "hidden") {
@@ -439,7 +448,7 @@ class VideoInput extends HTMLElement {
   }
 
   _updateRendering() {
-    let innhtml = "<video style='width:" + this._width + "px;height:" + this._height + "px;' id='gum" + this.id + "' playsinline autoplay></video><br/>";
+    let innhtml = "<div class='recordersign' id='rsign" + this.id + "'><center><span style='color:red;font-weight:bold;'>&bull;</span> recording</center></div><video style='width:" + this._width + "px;height:" + this._height + "px;' id='gum" + this.id + "' playsinline autoplay></video><br/>";
 
     let form_field_label = "<span id='" + this.id + "label'>" + this._label + "</span>"
     if (this._maxtime > 0) {
@@ -450,9 +459,9 @@ class VideoInput extends HTMLElement {
 
     if (this._labelloc !== "hidden") {
         if (this._labelloc === "top") {
-            innhtml = "<div class='videofieldlabel' style='width:" + this._width + "px;'>" + form_field_label + "<br/>" + button_row + "</div>" + innhtml
+            innhtml = "<div class='videofieldlabel'>" + form_field_label + "<br/>" + button_row + "</div>" + innhtml
         } else {
-            innhtml = innhtml + "<div class='videofieldlabel' style='width:" + this._width + "px;'>" + form_field_label + "<br/>" + button_row + "</div>"
+            innhtml = innhtml + "<div class='videofieldlabel'>" + form_field_label + "<br/>" + button_row + "</div>"
         }
     }
 

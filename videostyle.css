@@ -20,3 +20,17 @@ video-input button {
     border-radius:3px;
     min-width:100px;
 }
+
+.recordersign {
+    background:white;
+    position:relative;
+    top:25px;
+    left:5px;
+    font-family:arial;
+    font-size:10px;
+    margin-top:-20px;
+    border-radius:3px;
+    padding:3px;
+    width:70px;
+    visibility:hidden;
+}

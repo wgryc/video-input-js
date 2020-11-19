@@ -21,8 +21,8 @@ This will create a video input field 640px wide and 480px high, with the label "
 * action: the URL where the post request will be sent.
 
 *Optional* fields are below:
-* width: in pixels
-* height: in pixels
+* vidwidth: video width in pixels
+* vidheight: video height in pixels
 * labelloc: the location of the label field. Use "top" or "bottom" to position the label.
 * maxtime: the maximum length of the recording in seconds.
 
