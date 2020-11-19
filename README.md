@@ -2,7 +2,9 @@
 
 Video inputs can be a pain. This JS file creates a new HTML element that enables you to record video inputs and POST them directly to a URL. It is meant to act as a simple form-like interface for recording and submitting videos.
 
-Currently this works on Firefox and Chrome. It does not require jQuery or any other frameworks.
+Currently this works on Firefox and Chrome. It does not require jQuery.
+
+[See a demo here.](https://phaseai.com/resources/video-input-form-js-demo)
 
 ## Sample Code
 
