@@ -7,7 +7,7 @@
 *  license info, documentation, and more.
 *
 *  VERSION:       0.1.0
-*  LAST UPDATED:  18 November 2020
+*  LAST UPDATED:  19 November 2020
 *
 *  ACKNOWLEDGEMENTS
 *
@@ -221,7 +221,7 @@ function getConstraints(vWidth, vHeight) {
     */
    let constraints = {
     audio: {
-      echoCancellation: {exact: false}
+      echoCancellation: {exact: true}
     },
     video: {
       width: vWidth, height: vHeight
