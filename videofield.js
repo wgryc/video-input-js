@@ -3,8 +3,8 @@
 *  Learn more at https://phaseai.com/
 *
 *  This code is licensed under the MIT license. Please visit
-*  <<github>> for source code, license info, documentation,
-*  and more.
+*  https://github.com/wgryc/video-input-js for source code, 
+*  license info, documentation, and more.
 *
 *  VERSION:       0.1.0
 *  LAST UPDATED:  18 November 2020
