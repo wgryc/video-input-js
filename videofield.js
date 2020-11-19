@@ -3,10 +3,10 @@
 *  Learn more at https://phaseai.com/
 *
 *  This code is licensed under the MIT license. Please visit
-*  https://github.com/wgryc/video-input-js for source code, 
+*  https://github.com/wgryc/video-input-js for source code,
 *  license info, documentation, and more.
 *
-*  VERSION:       0.1.0
+*  VERSION:       0.1.1
 *  LAST UPDATED:  19 November 2020
 *
 *  ACKNOWLEDGEMENTS
@@ -188,6 +188,10 @@ function stopRecording(objid) {
   let gvnotifier = document.querySelector("#rsign" + objid);
   gvnotifier.style.visibility = "hidden";
 
+  // Also unmute the video. We initially mute it becaues of echo issues.
+  let gvobjplayback = document.querySelector("#gum" + objid)
+  gvobjplayback.muted = false;
+
 }
 
 function handleSuccess(stream, objid) {
@@ -200,6 +204,7 @@ function handleSuccess(stream, objid) {
   console.log(objid)
   let gumVideo = document.querySelector(objid);
   gumVideo.srcObject = stream;
+  gumVideo.muted = true;
   startRecording()
 }
 
